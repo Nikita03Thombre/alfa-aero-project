@@ -1,0 +1,91 @@
+VPC Details :
+
+1. VPC ID: vpc-006bc551d2ef714d4
+    • CIDR Block: 10.0.0.0/16
+    • State: available
+    • Owner ID: 192138073274
+    • Instance Tenancy: default
+    • Is Default: No
+    • Tags: Name: UAT-AARMS-VPC
+
+
+Subnet Details :
+
+ 1. Subnet ID: subnet-05d063759af2677ed
+    • Availability Zone: ca-central-1a
+    • CIDR Block: 10.0.0.0/24
+    • Available IP Address Count: 248
+    • Map Public IP on Launch: Yes
+    • Name Tag: UAT Public subnet1
+  2. Subnet ID: subnet-00ca417eda8683cc1
+    • Availability Zone: ca-central-1b
+    • CIDR Block: 10.0.3.0/24
+    • Available IP Address Count: 250
+    • Map Public IP on Launch: No
+    • Name Tag: UAT Private subnet2
+  3. Subnet ID: subnet-058aa388502b83454
+    • Availability Zone: ca-central-1b
+    • CIDR Block: 10.0.2.0/24
+    • Available IP Address Count: 249
+    • Map Public IP on Launch: Yes
+    • Name Tag: UAT Public subnet2
+  4. Subnet ID: subnet-0a2b3dab10da478fc
+    • Availability Zone: ca-central-1a
+    • CIDR Block: 10.0.1.0/24
+    • Available IP Address Count: 251
+    • Map Public IP on Launch: No
+    • Name Tag: UAT Private subnet1
+
+
+Route Table Details :
+
+ 1. Route Table ID: rtb-08bd2c7536db7e294
+    • Associations:
+      • Subnet ID: subnet-05d063759af2677ed
+      • Subnet ID: subnet-058aa388502b83454
+    • Routes:
+      • Destination CIDR Block: 10.0.0.0/16, Gateway ID: local, State: active
+      • Destination CIDR Block: 0.0.0.0/0, Gateway ID: igw-07c5d3953eeb05758, State: active
+
+  2. Route Table ID: rtb-0b8794d36b5bfbf26 (Main Route Table)
+    • Associations:
+      • Main: true
+    • Routes:
+      • Destination CIDR Block: 10.0.0.0/16, Gateway ID: local, State: active
+      • Destination CIDR Block: 0.0.0.0/0, NAT Gateway ID: nat-00373e557045d72a7, State: active
+
+Instance Details
+
+1 • Instance ID: i-00fede395e8d82394
+  • AMI ID: ami-0f9a2a10bdbf41dfe
+  • Instance Type: t2.small
+  • Launch Time: 2024-09-23T16:00:00Z
+  • State: running
+  • Private IP: 10.0.0.8
+  • Public IP: 15.156.116.138
+  • Key Name: uat-aarms-key-pair
+  • Security Groups: UAT-Bastion-SG
+  • Subnet ID: subnet-05d063759af2677ed
+  • VPC ID: vpc-006bc551d2ef714d4
+  • Architecture: x86_64
+  • Root Device Type: ebs
+  • Root Device: /dev/xvda
+  • Virtualization Type: hvm
+  • Name Tag: UAT-Bastion-Host
+
+2 • Instance ID: i-0e2a4c1b4a8f2e3d7
+  • AMI ID: ami-0f9a2a10bdbf41dfe
+  • Instance Type: t2.small
+  • Launch Time: 2024-09-23T16:00:00Z
+  • State: running
+  • Private IP: 10.0.1.10
+  • Public IP: None
+  • Key Name: uat-aarms-key-pair
+  • Security Groups: UAT-App-Server-SG
+  • Subnet ID: subnet-0a2b3dab10da478fc
+  • VPC ID: vpc-006bc551d2ef714d4
+  • Architecture: x86_64
+  • Root Device Type: ebs
+  • Root Device: /dev/xvda
+  • Virtualization Type: hvm
+  • Name Tag: UAT-App-Server
